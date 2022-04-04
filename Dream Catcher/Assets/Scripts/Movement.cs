@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
 
     Rigidbody2D rb;
     [SerializeField] float moveSpeed = 4;
+    [SerializeField] float jumpHeight = -4;
+    bool onGround = true; 
     //canMove is set to true if move timer is < 1
     public bool canMove = true;
     //Move timer determines if we can move. If it's above 0, we cannot. Used by hazards to slow us down.
@@ -27,12 +29,24 @@ public class Movement : MonoBehaviour
     }
 
     //This moves the object in the intended direction based on their move speed. Called by the input script of the object
-    public void MoveObject(Vector2 direction)
+    public void Move(Vector2 direction)
     {
         if (canMove)
         {
             rb.velocity = direction * moveSpeed * Time.deltaTime;
         }
+    }
+
+    public void Jump()
+    {
+
+        if (onGround)
+        {
+
+            rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+
+        }
+
     }
 
     void MoveTimer()
