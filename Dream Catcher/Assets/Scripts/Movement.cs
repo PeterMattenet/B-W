@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
     {
         if (canMove)
         {
-            rb.velocity = direction * moveSpeed * Time.deltaTime;
+            rb.AddForce(direction * moveSpeed);
         }
     }
 

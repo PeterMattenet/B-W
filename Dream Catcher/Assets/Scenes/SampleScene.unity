@@ -215,7 +215,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494162462}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -223,11 +223,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3d8523e9d4f39e24ba74779dfcff07a9, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!61 &494162466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -237,7 +237,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 494162462}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3d8523e9d4f39e24ba74779dfcff07a9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -347,6 +347,10 @@ PrefabInstance:
     - target: {fileID: 3710914891529898251, guid: 3f4bbfe328936ca4fbbbf24862db190c, type: 3}
       propertyPath: m_Name
       value: oEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130088568491983751, guid: 3f4bbfe328936ca4fbbbf24862db190c, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8941225147708871429, guid: 3f4bbfe328936ca4fbbbf24862db190c, type: 3}
       propertyPath: m_RootOrder
@@ -517,35 +521,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09ec3c6578db34044a502898c1ffedc2, type: 3}
---- !u!1 &2045975184313776476 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1813416156578133656, guid: 09ec3c6578db34044a502898c1ffedc2, type: 3}
-  m_PrefabInstance: {fileID: 2045975184313776475}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2045975184313776477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045975184313776476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8386b9af851317e4589e9085061682eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4
-  canMove: 0
-  moveTimer: 0
---- !u!114 &2045975184313776478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045975184313776476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3147cc9d2612f942a6706a6c75accba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
