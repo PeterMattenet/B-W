@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 
     Rigidbody2D rb;
     [SerializeField] float moveSpeed = 4;
+    [SerializeField] float moveBackSpeed = 3;
     [SerializeField] float jumpHeight = -4;
     bool onGround = true; 
     //canMove is set to true if move timer is < 1
@@ -32,10 +33,20 @@ public class Movement : MonoBehaviour
 
     //This moves the object in the intended direction based on their move speed. Called by the input script of the object
     public void Move(Vector2 direction)
-    {
+    { 
+
         if (canMove)
         {
-            rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+            float speed = moveSpeed; 
+
+            if (direction.x < 1)
+            {
+
+                speed = moveBackSpeed;
+
+            }
+
+            rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         }
     }
 

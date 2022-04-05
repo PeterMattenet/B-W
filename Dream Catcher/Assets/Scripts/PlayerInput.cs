@@ -9,6 +9,7 @@ public class PlayerInput : MonoBehaviour
 
     bool jumpInput;
     bool mouseInput;
+    float moveInput;
 
     private void Start()
     {
@@ -26,8 +27,8 @@ public class PlayerInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Apply movement based on input (Movement.Move is called constantly at the moment)
-        playerMovement.Move(Vector2.right);
+        //Apply movement based on input 
+        playerMovement.Move(Vector2.right * moveInput);
         //Jump if we press the jump input
         if (jumpInput) { playerMovement.Jump(); }
     }
@@ -38,6 +39,7 @@ public class PlayerInput : MonoBehaviour
 
         jumpInput = Input.GetButton("Jump");
         mouseInput = Input.GetMouseButtonDown(0);
+        moveInput = Input.GetAxisRaw("Horizontal");
 
     }
 
