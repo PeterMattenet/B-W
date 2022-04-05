@@ -6,6 +6,9 @@ public class Spawner : MonoBehaviour
 {
     public GameObject spawnInstance;
     [SerializeField] float spawnInterval;
+    //Used to determine how far we stray from the spawnInterval variable to add element of randomness to spawn timing
+    //MUST BE LOWER THAN SPAWN INTERVAL
+    [SerializeField] float IntervalVariance;
     float spawnTimer;
 
     private void Start()
@@ -37,7 +40,7 @@ public class Spawner : MonoBehaviour
         {
 
             SpawnInstance();
-            spawnTimer = spawnInterval;
+            spawnTimer = spawnInterval + Random.Range(-IntervalVariance, IntervalVariance);
 
         }
         else

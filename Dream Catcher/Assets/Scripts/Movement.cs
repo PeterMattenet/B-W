@@ -62,6 +62,17 @@ public class Movement : MonoBehaviour
 
     }
 
+    //Bump is used by the hazards to knock the player backwards
+    //bumpForce is the amount of force applied to the rigidbody
+    //bumpDuration is the length of time the player can't move (like a stagger effect)
+    public void Bump(Vector2 direction, float bumpForce, float bumpDuration)
+    {
+
+        moveTimer = bumpDuration;
+        rb.AddForce(direction * bumpForce, ForceMode2D.Impulse);
+
+    }
+
     void MoveTimer()
     {
 
@@ -70,7 +81,7 @@ public class Movement : MonoBehaviour
 
             canMove = false;
             //Ensures that it doesn't go below 0 whilst ticking down by 1 each second
-            moveTimer = Mathf.Clamp(moveTimer, 0, 1 * Time.deltaTime);
+            moveTimer = Mathf.Clamp(moveTimer, 0, moveTimer - Time.deltaTime);
 
         }
         else
