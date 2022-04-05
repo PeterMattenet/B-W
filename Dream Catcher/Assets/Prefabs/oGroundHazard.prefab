@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5262893014662035459}
   - component: {fileID: 129110173497165153}
   - component: {fileID: -2892645865153401400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: oGroundHazard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,4 +146,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bumpForce: 6
   bumpDuration: 0.5
-  moveSpeed: 3
+  moveSpeed: 12

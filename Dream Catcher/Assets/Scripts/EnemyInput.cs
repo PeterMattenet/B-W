@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class EnemyInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform jumpSensor;
+    public float jumpSensorDistance = 3;
+    RaycastHit2D jumpInput;
+    public LayerMask hazardLayer; 
+    Movement enemyMovement;
+
+    private void Start()
     {
-        
+
+        enemyMovement = GetComponent<Movement>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+
+        jumpInput = Physics2D.Raycast(jumpSensor.position, Vector2.right, jumpSensorDistance, hazardLayer);
+
+    }
+
+    private void FixedUpdate()
     {
         
+        if (jumpInput)
+        {
+            Debug.Log("HIT");
+            enemyMovement.Jump();
+
+        }
+
     }
 }

@@ -74,7 +74,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959198612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -1, z: 0}
+  m_LocalPosition: {x: 1, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8941225147708871429}
@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 7130088568491983751}
   - component: {fileID: 670254113781117891}
   - component: {fileID: 4817219335572583438}
+  - component: {fileID: 1041597475}
   m_Layer: 0
   m_Name: oEnemy
   m_TagString: Untagged
@@ -113,6 +114,7 @@ Transform:
   m_Children:
   - {fileID: 1079372655}
   - {fileID: 1959198613}
+  - {fileID: 2393592795752430981}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -182,7 +184,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -228,10 +230,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   moveBackSpeed: 3
-  jumpHeight: -4
+  jumpHeight: 2
   canMove: 1
   moveTimer: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  feetPos: {fileID: 1959198613}
+  feetPos: {fileID: 2393592795752430981}
+--- !u!114 &1041597475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3710914891529898251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e67a54293da0743b57f31d6ea7cea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSensor: {fileID: 1959198613}
+  jumpSensorDistance: 3
+  hazardLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!1 &6570128286176922940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2393592795752430981}
+  m_Layer: 0
+  m_Name: feetPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2393592795752430981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570128286176922940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8941225147708871429}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
