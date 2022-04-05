@@ -12,7 +12,9 @@ public class Movement : MonoBehaviour
     //canMove is set to true if move timer is < 1
     public bool canMove = true;
     //Move timer determines if we can move. If it's above 0, we cannot. Used by hazards to slow us down.
-    public float moveTimer = 0; 
+    public float moveTimer = 0;
+    public LayerMask groundLayer;
+    public Transform feetPos;
 
     private void Start()
     {
@@ -23,7 +25,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-
+        onGround = Physics2D.OverlapCircle(feetPos.position, 0.1f, groundLayer);
         MoveTimer();
 
     }
@@ -33,7 +35,7 @@ public class Movement : MonoBehaviour
     {
         if (canMove)
         {
-            rb.AddForce(direction * moveSpeed);
+            rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
         }
     }
 
@@ -43,7 +45,7 @@ public class Movement : MonoBehaviour
         if (onGround)
         {
 
-            rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+            rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
 
         }
 

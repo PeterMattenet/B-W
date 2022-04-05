@@ -22,11 +22,14 @@ public class PlayerInput : MonoBehaviour
 
         CollectInput();
 
+    }
+
+    private void FixedUpdate()
+    {
         //Apply movement based on input (Movement.Move is called constantly at the moment)
         playerMovement.Move(Vector2.right);
         //Jump if we press the jump input
-        if (jumpInput){ playerMovement.Jump(); }
-
+        if (jumpInput) { playerMovement.Jump(); }
     }
 
     //Gathers all the input the player has and updates corresponding variables
